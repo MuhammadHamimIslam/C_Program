@@ -33,7 +33,7 @@ int main() {
        }
        printf("\n\n");
    }
-   
+   printf("%d", getResult(mat1, mat2)[0][0]);
 	return 0;
 }
 
@@ -44,4 +44,13 @@ int takeInput(int matrix[2][2]) {
           scanf("%d", &matrix[i][j]);
       }
   }
+}
+int getResult(matix1[2][2], matrix2[2][2]) {
+    int result[2][2];
+    for(int i = 0; i < 2;i++){
+        for(int j = 0;j < 2;j++){
+            result[i][j] = matrix[i][j] + matrix2[i][j];
+        }
+    }
+    return result;
 }
