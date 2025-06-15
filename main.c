@@ -6,12 +6,14 @@ void arraySum(int sum[3][3], int arr1[3][3], int arr2[3][3]); // find the sum
 void arraySub(int sub[3][3], int arr1[3][3], int arr2[3][3]); // find the substraction
 
 int main() {
-    int array1[3][3], array2[3][3], i;
+    int array1[3][3], array2[3][3];
     char oprtr;
     
+    printf("Enter input for Matrix 1.");
     takeInput(array1);
     printArray(array1);
     
+    printf("Enter input for Matrix 2.");
     takeInput(array2);
     printArray(array2);
     
@@ -43,7 +45,7 @@ void printArray(int arr[3][3]){
 void takeInput(int arr[3][3]){
     for (int i = 0; i < 3; i++) {
         for(int j=0;j < 3; j++){
-            printf("Enter input for Array[%d]×[%d]: ", i+1, j+1);
+            printf("Enter input for Matrix %d×%d: ", i+1, j+1);
             scanf("%d", &arr[i][j]);
         }
     }
@@ -60,7 +62,7 @@ void arraySum(int sum[3][3], int arr1[3][3], int arr2[3][3]){
 void arraySub(int sub[3][3], int arr1[3][3], int arr2[3][3]){
     for (int i = 0; i < 3; i++) {
         for(int j=0;j < 3; j++){
-            sub[i][j] = arr1[i][j] + arr2[i][j];
+            sub[i][j] = arr1[i][j] - arr2[i][j];
         }
     }
 }
