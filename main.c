@@ -1,67 +1,74 @@
 #include <stdio.h>
 
-void printArray(int arr[3][3]); // to print array
-void takeInput(int arr[3][3]); // take input of array elements 
-void arraySum(int sum[3][3], int arr1[3][3], int arr2[3][3]); // find the sum 
-void arraySub(int sub[3][3], int arr1[3][3], int arr2[3][3]); // find the substraction
+void printArray(int rows, int cols, int arr[rows][cols]); // to print array
+void takeInput(int rows, int cols, int arr[rows][cols]); // take input of array elements 
+void arraySum(int rows, int cols, int sum[rows][cols], int arr1[rows][cols], int arr2[rows][cols]); // find the sum 
+void arraySub(int rows, int cols, int sub[rows][cols], int arr1[rows][cols], int arr2[rows][cols]); // find the substraction
 
 int main() {
-    int array1[3][3], array2[3][3];
+    int rows, cols;
+    printf("Enter the row for matrices: ");
+    scanf("%d", &rows);
+    
+    printf("Enter the column for matrices: ");
+    scanf("%d", &cols);
+    
+    int array1[rows][cols], array2[rows][cols];
     char oprtr;
     
-    printf("Enter input for Matrix 1.");
-    takeInput(array1);
-    printArray(array1);
+    printf("Enter input for Matrix 1.\n");
+    takeInput(rows, cols, array1);
+    printArray(rows, cols, array1);
     
-    printf("Enter input for Matrix 2.");
-    takeInput(array2);
-    printArray(array2);
+    printf("Enter input for Matrix 2.\n");
+    takeInput(rows, cols, array2);
+    printArray(rows, cols, array2);
     
     printf("Enter the operator: ");
     scanf(" %c", &oprtr);
     
     if (oprtr == '+'){
-        int sum[3][3];
-        arraySum(sum, array1, array2);
-        printArray(sum);
+        int sum[rows][cols];
+        arraySum(rows, cols, sum, array1, array2);
+        printArray(rows, cols, sum);
     } else if (oprtr == '-'){
-        int sub[3][3];
-        arraySub(sub, array1, array2);
-        printArray(sub);
+        int sub[rows][cols];
+        arraySub(rows, cols, sub, array1, array2);
+        printArray(rows, cols, sub);
     } else {
         printf("Unknown operator!");
     }
 }
 
-void printArray(int arr[3][3]){
-    for (int i = 0; i < 3; i++) {
-        for(int j=0;j < 3; j++){
+void printArray(int rows, int cols, int arr[rows][cols]){
+    for (int i = 0; i < rows; i++) {
+        for(int j=0;j < cols; j++){
             printf("%d   ", arr[i][j]);
         }
         printf("\n"); 
     }
 }
 
-void takeInput(int arr[3][3]){
-    for (int i = 0; i < 3; i++) {
-        for(int j=0;j < 3; j++){
+void takeInput(int rows, int cols, int arr[rows][cols]){
+    for (int i = 0; i < rows; i++) {
+        for(int j=0;j < cols; j++){
             printf("Enter input for Matrix %d×%d: ", i+1, j+1);
             scanf("%d", &arr[i][j]);
         }
     }
 }
 
-void arraySum(int sum[3][3], int arr1[3][3], int arr2[3][3]){
-    for (int i = 0; i < 3; i++) {
-        for(int j=0;j < 3; j++){
+void arraySum(int rows, int cols, int sum[rows][cols], int arr1[rows][cols], int arr2[rows][cols]){
+    for (int i = 0; i < rows; i++) {
+        for(int j=0;j < cols; j++){
             sum[i][j] = arr1[i][j] + arr2[i][j];
         }
     }
 }
 
-void arraySub(int sub[3][3], int arr1[3][3], int arr2[3][3]){
-    for (int i = 0; i < 3; i++) {
-        for(int j=0;j < 3; j++){
+void arraySub(int rows, int cols, int sub[rows][cols], int arr1[rows][cols], int arr2[rows][cols]){
+    for (int i = 0; i < rows; i++) {
+        for(int j=0;j < cols; j++){
             sub[i][j] = arr1[i][j] - arr2[i][j];
         }
     }
